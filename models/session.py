@@ -1,4 +1,3 @@
-# models/session.py
 class Session:
     def __init__(self, day, start_time, end_time, activity):
         self.day = day
@@ -12,8 +11,9 @@ class Session:
     def book_member(self, member):
         if len(self.booked_members) < self.activity.max_participants:
             self.booked_members.append(member)
+            print(f"Member {member.full_name} booked for session on {self.day}.")
         else:
-            print(f"Session on {self.day} is full!")
+            print(f"Session on {self.day} is full! No more bookings allowed.")
 
     def cancel_booking(self, member):
         if member in self.booked_members:
